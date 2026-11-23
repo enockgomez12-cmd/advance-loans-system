@@ -1,120 +1,353 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MobiAdvance - Digital Finance Demo</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTN MOMO ADVANCE LOANS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<div class="notice">INDEPENDENT DIGITAL FINANCE DEMO</div>
+    <!-- NAVIGATION -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon">M</span>
+            <span>MTN MOMO<span class="yellow-text">LOANS</span></span>
+        </div>
 
-<header>
-  <div class="logo">MOBI<span>ADVANCE</span></div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#calculator">Calculator</a>
-    <a href="#apply">Apply</a>
-  </nav>
-  <a class="login" href="#apply">Get Started</a>
-</header>
+        <nav id="navMenu">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#apply">Apply for Loan</a>
+            <a href="#history">My Applications</a>
+        </nav>
 
-<section class="hero" id="home">
-  <div>
-    <h1>Financial solutions for your <span>next move.</span></h1>
-    <p>Explore a modern digital finance experience with smart tools and simple calculations.</p>
-    <a href="#calculator" class="btn">Explore Calculator →</a>
-  </div>
+        <button class="nav-button" onclick="scrollToApply()">
+            Get Started
+        </button>
 
-  <div class="hero-card">
-    <h2>Sample Loan Calculator</h2>
-    <h1 id="heroAmount">KES 5,000</h1>
-    <input type="range" id="heroRange" min="1000" max="50000" step="500" value="5000">
-    <p>Select your preferred amount.</p>
-  </div>
-</section>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </header>
 
-<section id="services">
-  <h2>Our Digital Services</h2>
-  <div class="features">
-    <div class="feature">
-      <h3>💳 Digital Finance</h3>
-      <p>Explore modern financial technology.</p>
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+            <span class="hero-label">SMART DIGITAL FINANCE</span>
+
+            <h1>
+                Your Financial
+                <span>Freedom Starts Here.</span>
+            </h1>
+
+            <p>
+                Access digital loan application experience.
+                Choose your preferred amount, calculate your repayment
+                and submit your application.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToApply()">
+                    Apply Now →
+                </button>
+
+                <a href="#services" class="btn-outline">
+                    Explore Services
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div>
+                    <h3>24/7</h3>
+                    <p>Online Access</p>
+                </div>
+
+                <div>
+                    <h3>3 Steps</h3>
+                    <p>Simple Process</p>
+                </div>
+
+                <div>
+                    <h3>Secure</h3>
+                    <p>Protected Data</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <div class="card-top">
+                <span>MTN MOMO LOANS</span>
+                <span>✦</span>
+            </div>
+
+            <div class="wallet-icon">💳</div>
+
+            <p>Maximum loan limit</p>
+            <h2>UGX 10,000,000</h2>
+
+            <div class="card-bottom">
+                <span>Digital Finance</span>
+                <span>INSTANT</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services section" id="services">
+
+        <div class="section-heading">
+            <span>OUR SERVICES</span>
+            <h2>upgraded Financial Tools</h2>
+            <p>Explore the features available in this financial tool.</p>
+        </div>
+
+        <div class="service-grid">
+
+            <div class="service-card">
+                <div class="service-icon">💰</div>
+                <h3>Loan Calculator</h3>
+                <p>Estimate your repayment using your selected loan amount.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Application Tracking</h3>
+                <p>Check the status of your submitted loan application</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Application Tracking</h3>
+                <p>Track the status of your submitted loan applications.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LOAN APPLICATION -->
+    <section class="application-section section" id="apply">
+
+        <div class="section-heading">
+            <span>GET STARTED</span>
+            <h2>Apply for a Loan</h2>
+            <p>Fill in your details below to submit your loan application</p>
+        </div>
+
+        <div class="application-container">
+
+            <div class="form-container">
+
+                <div class="form-title">
+                    <h3>Personal Information</h3>
+                    <span class="step-label">STEP 1 OF 2</span>
+                </div>
+
+                <form id="loanForm">
+
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input
+                            type="text"
+                            id="fullName"
+                            placeholder="Enter your full name"
+                            required
+                            minlength="3"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Mobile Number</label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="Enter your mobile number"
+                            required
+                            pattern="[0-9+() -]{9,16}"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="amount">Select Loan Amount</label>
+
+                        <div class="amount-display">
+                            UGX <span id="amountValue">100,000</span>
+                        </div>
+
+                        <input
+                            type="range"
+                            id="amount"
+                            min="50000"
+                            max="10000000"
+                            step="50000"
+                            value="100000"
+                        >
+
+                        <div class="range-labels">
+                            <span>UGX 50,000</span>
+                            <span>UGX 10,000,000</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="period">Repayment Period</label>
+
+                        <select id="period" required>
+                            <option value="7">7 Days</option>
+                            <option value="14">14 Days</option>
+                            <option value="30" selected>30 Days</option>
+                            <option value="60">60 Days</option>
+                        </select>
+                    </div>
+
+                    <div class="calculator">
+                        <h3>Repayment Estimate</h3>
+
+                        <div class="calc-row">
+                            <span>Principal Amount</span>
+                            <strong id="principal">UGX 100,000</strong>
+                        </div>
+
+                        <div class="calc-row">
+                            <span>service Fee (10%)</span>
+                            <strong id="fee">UGX 10,000</strong>
+                        </div>
+
+                        <div class="calc-row total-row">
+                            <span>Total Repayment</span>
+                            <strong id="total">UGX 110,000</strong>
+                        </div>
+
+                        <p class="calc-note">
+                            Includes a 10% service fee.Final loan approval and repayment terms are subject to verification.
+            
+                        </p>
+                    </div>
+
+                    <label class="consent">
+                        <input type="checkbox" id="consent" required>
+                        <span>
+                            I agree to the terms and conditions and authorize the processing of my loan application.
+
+                        </span>
+                    </label>
+
+                    <button type="submit" class="submit-btn">
+                        Review Application →
+                    </button>
+
+                </form>
+
+            </div>
+
+            <!-- APPLICATION INFORMATION -->
+            <aside class="application-info">
+
+                <div class="info-icon">💡</div>
+
+                <h3>How It Works</h3>
+
+                <div class="info-step">
+                    <span>01</span>
+                    <div>
+                        <h4>Enter Details</h4>
+                        <p>Provide your name and contact number.</p>
+                    </div>
+                </div>
+
+                <div class="info-step">
+                    <span>02</span>
+                    <div>
+                        <h4>Select Amount</h4>
+                        <p>Choose an amount and repayment period.</p>
+                    </div>
+                </div>
+
+                <div class="info-step">
+                    <span>03</span>
+                    <div>
+                        <h4>Review Application</h4>
+                        <p>View your application.</p>
+                    </div>
+                </div>
+
+                <div class="security-box">
+                    <span>🔒</span>
+                    <p>
+                       Please enter your mobile-money PIN, password, or OTP to securely verify and process your request.
+
+                    </p>
+                </div>
+
+            </aside>
+
+        </div>
+    </section>
+
+    <!-- APPLICATION HISTORY -->
+    <section class="history-section section" id="history">
+
+        <div class="section-heading">
+            <span>YOUR RECORDS</span>
+            <h2>Application History</h2>
+            <p>Applications saved on this device.</p>
+        </div>
+
+        <div class="history-container">
+
+            <div class="history-top">
+                <h3>Recent Applications</h3>
+                <button onclick="clearHistory()" class="clear-btn">
+                    Clear History
+                </button>
+            </div>
+
+            <div id="historyList">
+                <div class="empty-state">
+                    <span>📂</span>
+                    <p>No applications have been created yet.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">MTN MOMO LOANSS</div>
+        <p>
+            Transparent and fully compliant financial service powered by MTN and certified mobile-money providers. Real, active loans are issued subject to terms.
+        </p>
+        <p>© 2026 MTN MOMO LOANS. All rights reserved.</p>
+    </footer>
+
+    <!-- CONFIRMATION MODAL -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+
+            <div class="success-icon">✓</div>
+
+            <h2>Application submitted</h2>
+
+            <p>
+                Your loan application has been received and is being reviewed.      
+            </p>
+
+            <div id="confirmationDetails"></div>
+
+            <button class="submit-btn" onclick="closeModal()">
+                Done
+            </button>
+
+        </div>
     </div>
-    <div class="feature">
-      <h3>📊 Smart Calculator</h3>
-      <p>Calculate illustrative repayment amounts.</p>
-    </div>
-    <div class="feature">
-      <h3>🔐 Privacy First</h3>
-      <p>No banking PIN or OTP collection.</p>
-    </div>
-  </div>
-</section>
 
-<section id="calculator">
-  <h2>Repayment Calculator</h2>
-  <div class="calculator">
-    <label>Amount (KES)</label>
-    <input type="number" id="loanAmount" value="5000">
+    <div id="toast" class="toast"></div>
 
-    <label>Sample Interest (%)</label>
-    <input type="number" id="interest" value="5">
-
-    <label>Repayment Period</label>
-    <select id="period">
-      <option value="1">1 Month</option>
-      <option value="2">2 Months</option>
-      <option value="3">3 Months</option>
-      <option value="6">6 Months</option>
-      <option value="12">12 Months</option>
-    </select>
-
-    <button onclick="calculate()">Calculate</button>
-
-    <div class="result">
-      <p>Principal: <strong id="principal"></strong></p>
-      <p>Interest: <strong id="interestResult"></strong></p>
-      <p>Total: <strong id="total"></strong></p>
-      <p>Monthly: <strong id="monthly"></strong></p>
-    </div>
-  </div>
-</section>
-
-<section id="apply">
-  <h2>Sample Application</h2>
-  <div class="form-box">
-    <form id="applicationForm">
-      <label>Full Name</label>
-      <input type="text" id="name" required>
-
-      <label>Amount (KES)</label>
-      <input type="number" id="requestedAmount" min="1000" max="50000" required>
-
-      <label>Purpose</label>
-      <select id="purpose" required>
-        <option value="">Select purpose</option>
-        <option>Education</option>
-        <option>Business</option>
-        <option>Personal expenses</option>
-      </select>
-
-      <button type="submit">Submit Demo Application</button>
-    </form>
-    <div id="message"></div>
-    <p class="disclaimer">This is a demonstration. No real loan is issued and no information is transmitted.</p>
-  </div>
-</section>
-
-<footer>
-  <h2>MOBIADVANCE</h2>
-  <p>Independent digital finance demonstration platform.</p>
-  <p>© 2026 All Rights Reserved.</p>
-  <p>Not affiliated with MTN or any financial institution.</p>
-</footer>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
